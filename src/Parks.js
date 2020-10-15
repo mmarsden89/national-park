@@ -109,7 +109,6 @@ const Parks = (props) => {
     const updated = parks.filter((park) => {
       return userParkList.includes(park._id);
     });
-    console.log("updated--->", updated, userParkList);
     setFilter(updated);
   };
 
@@ -117,7 +116,6 @@ const Parks = (props) => {
     const updated = parks.filter((park) => {
       return !userParkList.includes(park._id);
     });
-    console.log("updated--->", updated);
     setFilter(updated);
   };
 
