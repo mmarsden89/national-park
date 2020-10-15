@@ -106,21 +106,23 @@ const Parks = (props) => {
   };
 
   const visited = () => {
-    const filter = this.state.parks.filter((park) => {
+    const updated = parks.filter((park) => {
       return userParkList.includes(park._id);
     });
-    this.setState({ filter: filter });
+    console.log("updated--->", updated, userParkList);
+    setFilter(updated);
   };
 
   const notVisited = () => {
-    const filter = this.state.parks.filter((park) => {
+    const updated = parks.filter((park) => {
       return !userParkList.includes(park._id);
     });
-    this.setState({ filter: filter });
+    console.log("updated--->", updated);
+    setFilter(updated);
   };
 
   const all = () => {
-    this.setState({ filter: this.state.parks });
+    setFilter(parks);
   };
 
   const { list } = userState;
