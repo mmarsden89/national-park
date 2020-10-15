@@ -1,20 +1,29 @@
 $background: #282c34;
-$background-transp: rgba(40, 44, 52,0);
+$background2: #1e2127;
+$background-transp: rgba(40, 44, 52, 0);
 $offwhite: #cccccc;
+
+.profile-image {
+  border-radius: 50%;
+  width: 30px;
+  margin-right: 11px;
+  border: 3px solid $offwhite;
+}
 
 .navbar {
   position: sticky;
   width: 100%;
   top: 0;
+  z-index: 10;
 }
 
 .navbar-container {
   align-items: center;
-  background-color: $background;
+  background-color: $background2;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  height: 40px;
+  height: 45px;
 }
 
 .gradient {
@@ -27,7 +36,8 @@ $offwhite: #cccccc;
   text-decoration: none;
 }
 
-.nickname, .signout {
+.nickname,
+.signout {
   margin-right: 15px;
 }
 
@@ -39,8 +49,15 @@ $offwhite: #cccccc;
 .profile-area {
   display: flex;
   justify-content: space-around;
+  width: 200px;
+  align-items: center;
 }
 
+.signin-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
 .signout {
   color: $offwhite;
