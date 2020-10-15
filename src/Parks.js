@@ -14,6 +14,7 @@ const Parks = (props) => {
   const [modal, setModal] = useState(false);
   const [selectedTarget, setSelectedTarget] = useState("");
   const [userState, setUserState] = useState({ list: [] });
+  const [userParkList, setUserParkList] = useState([]);
 
   // async componentDidMount() {
   //   const parkResponse = await axios(`${apiUrl}/parks`);
@@ -38,12 +39,14 @@ const Parks = (props) => {
     if (isAuthenticated) {
       console.log("got here!");
       const userResponse = await axios(`${apiUrl}/users/${user.nickname}`);
-      if (userResponse.data.User.length < 1) {
+      if (userResponse.data.user.length < 1) {
         console.log("are we creating user??");
-        this.createUser().then(this.getUser);
+        createUser();
+        getUser();
       } else {
         console.log("userREponse - --->", userResponse.data);
-        setUserState(userResponse.data.User[0]);
+        setUserState(userResponse.data.user);
+        setUserParkList(userResponse.data.user.list);
       }
     }
   };
@@ -51,7 +54,7 @@ const Parks = (props) => {
   useEffect(() => {
     getParks();
     getUser();
-  }, []);
+  }, [user]);
 
   const createUser = async () => {
     await axios({
@@ -76,23 +79,56 @@ const Parks = (props) => {
     }
   };
 
+  const addPark = async (id) => {
+    let updated = [...userParkList];
+    setUserParkList((userParkList) => [...userParkList, id]);
+    updated.push(id);
+    return updated;
+  };
+
   const handleVisit = async (event) => {
-    const id = event.target.id;
+    const id = event.currentTarget.id;
     await axios({
-      url: apiUrl + `/Users/${user.nickname}`,
+      url: apiUrl + `/users/${user.nickname}`,
       method: "PATCH",
       data: {
         user: {
-          list: id,
+          list: await addPark(id),
         },
       },
     });
-    getUser();
+  };
+
+  // const changefornow = async () => {
+  //   await axios({
+  //     url: apiUrl + `/users/mmarsden89`,
+  //     method: "PATCH",
+  //     data: {
+  //       user: {
+  //         list: [],
+  //       },
+  //     },
+  //   });
+  // };
+
+  const removePark = async (id) => {
+    let updated = [...userParkList].filter((item) => item !== id);
+    setUserParkList(userParkList.filter((item) => item !== id));
+    console.log("heres updated--->", updated, id);
+    return updated;
   };
 
   const handleRemoveVisit = async (event) => {
-    const id = event.target.id;
-    console.log(id);
+    const id = event.currentTarget.id;
+    await axios({
+      url: apiUrl + `/users/${user.nickname}`,
+      method: "PATCH",
+      data: {
+        user: {
+          list: await removePark(id),
+        },
+      },
+    });
   };
 
   const visited = () => {
@@ -129,22 +165,16 @@ const Parks = (props) => {
     </div>
   );
   const parksHTML = filter.map((park) => (
-    <div key={park._id} id={park._id} className="parks">
+    <div key={`${park._id}-park`} id={`${park._id}-div`} className="parks">
       {isAuthenticated ? (
-        list.includes(park._id) ? (
-          <FontAwesomeIcon
-            icon={faMinusCircle}
-            onClick={handleRemoveVisit}
-            id={park._id}
-            className="plusOrMinus"
-          />
+        userParkList.includes(park._id) ? (
+          <button onClick={handleRemoveVisit} id={park._id}>
+            <FontAwesomeIcon icon={faMinusCircle} className="plusOrMinus" />
+          </button>
         ) : (
-          <FontAwesomeIcon
-            icon={faPlusCircle}
-            onClick={handleVisit}
-            id={park._id}
-            className="plusOrMinus"
-          />
+          <button onClick={handleVisit} id={park._id}>
+            <FontAwesomeIcon icon={faPlusCircle} className="plusOrMinus" />
+          </button>
         )
       ) : null}
       <div className="park-container" onClick={openModal} id={park._id}>
@@ -172,6 +202,7 @@ const Parks = (props) => {
   return (
     <div className="container" onClick={closeModal}>
       {auth0Client.isAuthenticated() ? buttonsHTML : filler}
+      {/* <button onClick={changefornow}>change for now</button> */}
       {parksHTML}
       {modal ? <SinglePark target={selectedTarget} /> : null}
     </div>
