@@ -57,7 +57,7 @@ const Parks = (props) => {
   };
 
   const openModal = (event) => {
-    setModal(!this.state.modal);
+    setModal(!modal);
     setSelectedTarget(event.currentTarget.id);
   };
 
