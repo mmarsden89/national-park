@@ -13,7 +13,9 @@ const NavBar = (props) => {
       <div className="navbar-container">
         {!isAuthenticated && (
           <div className="signin-area">
-            <label className="nickname">Sign In</label>
+            <label className="nickname signin" onClick={loginWithRedirect}>
+              Sign In
+            </label>
             <FontAwesomeIcon
               icon={faSignInAlt}
               className="signout"
