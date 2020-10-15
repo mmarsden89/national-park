@@ -156,6 +156,7 @@ const Parks = (props) => {
           src={park.thumbnail}
           alt={"thumbnail of " + park.name}
           className="park-thumbnail"
+          loading="lazy"
         />
         <div className="info-grid">
           <p className="park-name">{park.name} National Park</p>
