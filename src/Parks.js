@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Parks = (props) => {
+  console.log("been updated");
   const [parks, setParks] = useState([]);
   const [filter, setFilter] = useState([]);
   const [modal, setModal] = useState(false);
@@ -37,6 +38,7 @@ const Parks = (props) => {
   };
 
   useEffect(() => {
+    console.log(window.location);
     getParks();
     getUser();
   }, [user]);
