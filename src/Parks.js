@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SinglePark from "./SinglePark";
 import apiUrl from "./apiConfig";
-import auth0Client from "./Auth";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -176,7 +175,7 @@ const Parks = (props) => {
   ));
   return (
     <div className="container" onClick={closeModal}>
-      {auth0Client.isAuthenticated() ? buttonsHTML : filler}
+      {isAuthenticated ? buttonsHTML : filler}
       {parksHTML}
       {modal ? <SinglePark target={selectedTarget} /> : null}
     </div>
