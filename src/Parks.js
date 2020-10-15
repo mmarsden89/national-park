@@ -26,19 +26,20 @@ const Parks = (props) => {
 
   const getUser = async () => {
     if (isAuthenticated) {
-      const userResponse = await axios(`${apiUrl}/users/${user.nickname}`);
-      if (userResponse.data.user.length < 1) {
-        createUser();
-        getUser();
-      } else {
+      try {
+        const userResponse = await axios(`${apiUrl}/users/${user.nickname}`);
+        console.log("user response --->", userResponse);
         setUserState(userResponse.data.user);
         setUserParkList(userResponse.data.user.list);
+      } catch (err) {
+        await createUser();
+        await getUser();
       }
     }
   };
 
   useEffect(() => {
-    console.log(window.location);
+    console.log(userParkList);
     getParks();
     getUser();
   }, [user]);
@@ -49,7 +50,7 @@ const Parks = (props) => {
       method: "POST",
       data: {
         user: {
-          nickname: auth0Client.getProfile().nickname,
+          nickname: user.nickname,
         },
       },
     });
@@ -64,6 +65,13 @@ const Parks = (props) => {
     if (modal) {
       setModal(false);
     }
+  };
+
+  const deleteUser = async () => {
+    await axios({
+      url: apiUrl + `/users/5d978a6eb2223cff716be6f2`,
+      method: "DELETE",
+    });
   };
 
   const addPark = async (id) => {
@@ -107,14 +115,14 @@ const Parks = (props) => {
 
   const visited = () => {
     const filter = this.state.parks.filter((park) => {
-      return this.state.user.list.includes(park._id);
+      return userParkList.includes(park._id);
     });
     this.setState({ filter: filter });
   };
 
   const notVisited = () => {
     const filter = this.state.parks.filter((park) => {
-      return !this.state.user.list.includes(park._id);
+      return !userParkList.includes(park._id);
     });
     this.setState({ filter: filter });
   };
@@ -176,6 +184,7 @@ const Parks = (props) => {
   return (
     <div className="container" onClick={closeModal}>
       {auth0Client.isAuthenticated() ? buttonsHTML : filler}
+      <button onClick={deleteUser}>delete</button>
       {parksHTML}
       {modal ? <SinglePark target={selectedTarget} /> : null}
     </div>
