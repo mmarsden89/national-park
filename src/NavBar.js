@@ -7,8 +7,10 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import Profile from "./Profile";
 
-function NavBar(props) {
-  console.log(window.location.origin);
+import { useAuth0 } from "@auth0/auth0-react";
+
+const NavBar = (props) => {
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   const signOut = () => {
     auth0Client.signOut();
     props.history.replace("/");
@@ -17,34 +19,30 @@ function NavBar(props) {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {!auth0Client.isAuthenticated() && (
+        {!isAuthenticated && (
           <FontAwesomeIcon
             icon={faSignInAlt}
             className="signout"
-            onClick={auth0Client.signIn}
+            onClick={loginWithRedirect}
           />
         )}
-        {auth0Client.isAuthenticated() && (
+        {isAuthenticated && (
           <div className="profile-area">
-            <label className="nickname">
-              {auth0Client.getProfile().nickname}
-            </label>
+            <label className="nickname">{user.nickname}</label>
             <FontAwesomeIcon
               icon={faSignOutAlt}
-              onClick={() => {
-                signOut();
-              }}
+              onClick={() => logout({ returnTo: window.location.href })}
               className="signout"
             />
           </div>
         )}
       </div>
       <div className="gradient"></div>
-      <LoginButton />
-      <LogoutButton />
+      {/* <LoginButton />
+      <LogoutButton /> */}
       <Profile />
     </nav>
   );
-}
+};
 
 export default withRouter(NavBar);
