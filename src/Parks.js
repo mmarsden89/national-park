@@ -16,17 +16,6 @@ const Parks = (props) => {
   const [userState, setUserState] = useState({ list: [] });
   const [userParkList, setUserParkList] = useState([]);
 
-  // async componentDidMount() {
-  //   const parkResponse = await axios(`${apiUrl}/parks`);
-  //   this.setState({
-  //     parks: parkResponse.data.parks,
-  //     filter: parkResponse.data.parks,
-  //   });
-  //   // const temp = { list: [] };
-  //   // this.setState({ user: temp });
-  //   this.getUser();
-  //   console.log(this.state.user);
-  // }
   const { user, isAuthenticated, isLoading } = useAuth0();
   const getParks = async () => {
     const parkResponse = await axios(`${apiUrl}/parks`);
@@ -35,16 +24,12 @@ const Parks = (props) => {
   };
 
   const getUser = async () => {
-    console.log("get user");
     if (isAuthenticated) {
-      console.log("got here!");
       const userResponse = await axios(`${apiUrl}/users/${user.nickname}`);
       if (userResponse.data.user.length < 1) {
-        console.log("are we creating user??");
         createUser();
         getUser();
       } else {
-        console.log("userREponse - --->", userResponse.data);
         setUserState(userResponse.data.user);
         setUserParkList(userResponse.data.user.list);
       }
@@ -99,22 +84,9 @@ const Parks = (props) => {
     });
   };
 
-  // const changefornow = async () => {
-  //   await axios({
-  //     url: apiUrl + `/users/mmarsden89`,
-  //     method: "PATCH",
-  //     data: {
-  //       user: {
-  //         list: [],
-  //       },
-  //     },
-  //   });
-  // };
-
   const removePark = async (id) => {
     let updated = [...userParkList].filter((item) => item !== id);
     setUserParkList(userParkList.filter((item) => item !== id));
-    console.log("heres updated--->", updated, id);
     return updated;
   };
 
@@ -202,7 +174,6 @@ const Parks = (props) => {
   return (
     <div className="container" onClick={closeModal}>
       {auth0Client.isAuthenticated() ? buttonsHTML : filler}
-      {/* <button onClick={changefornow}>change for now</button> */}
       {parksHTML}
       {modal ? <SinglePark target={selectedTarget} /> : null}
     </div>
