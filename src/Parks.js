@@ -67,13 +67,6 @@ const Parks = (props) => {
     }
   };
 
-  const deleteUser = async () => {
-    await axios({
-      url: apiUrl + `/users/5d978a6eb2223cff716be6f2`,
-      method: "DELETE",
-    });
-  };
-
   const addPark = async (id) => {
     let updated = [...userParkList];
     setUserParkList((userParkList) => [...userParkList, id]);
@@ -184,7 +177,6 @@ const Parks = (props) => {
   return (
     <div className="container" onClick={closeModal}>
       {auth0Client.isAuthenticated() ? buttonsHTML : filler}
-      <button onClick={deleteUser}>delete</button>
       {parksHTML}
       {modal ? <SinglePark target={selectedTarget} /> : null}
     </div>
