@@ -38,6 +38,7 @@ const Parks = (props) => {
   };
 
   useEffect(() => {
+    console.log(window.location);
     getParks();
     getUser();
   }, [user]);
