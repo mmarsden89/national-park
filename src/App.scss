@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Righteous&display=swap");
 
 $background: #282c34;
-$backgroundTransp: rgba(40, 44, 52, .6);
+$backgroundTransp: rgba(40, 44, 52, 0.6);
 $offwhite: #cccccc;
-$offwhiteTransp: rgba(204, 204, 204, .6);
+$offwhiteTransp: rgba(204, 204, 204, 0.6);
 
 * {
   margin: 0;
@@ -82,11 +82,10 @@ body {
   margin-bottom: 25px;
 }
 
-
 .header-app {
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
   position: absolute;
-  top: 0;
+  top: 40px;
 }
 
 .image-header {
@@ -114,14 +113,14 @@ body {
   text-align: center;
   position: absolute;
   top: 205px;
-  transition: .5s;
+  transition: 0.5s;
   width: 100%;
 }
 
 .logo-text:hover {
   color: #2d313b;
   cursor: default;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .modal-image {
@@ -168,7 +167,7 @@ body {
 }
 
 .park-container:hover {
-  background-color: rgba(255,255,255, .1);
+  background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: 1.5s;
 }
@@ -233,21 +232,18 @@ body {
 }
 
 @media (max-width: 1200px) {
-
   .modal-park-desc {
     font-size: 14px;
   }
 }
 
 @media (max-width: 1060px) {
-
   .modal-park-desc {
     font-size: 12px;
   }
 }
 
 @media (max-width: 920px) {
-
   .info-grid {
     margin-right: 15px;
   }
@@ -260,7 +256,9 @@ body {
     top: 52.5px;
   }
 
-  .est, .area, .vis {
+  .est,
+  .area,
+  .vis {
     padding: 0 10px 0 0 !important;
   }
 
@@ -273,7 +271,8 @@ body {
     width: 100%;
   }
 
-  .modal-header, .modal-sub-header {
+  .modal-header,
+  .modal-sub-header {
     top: 0;
     position: absolute;
     left: 0;
@@ -327,7 +326,6 @@ body {
 }
 
 @media (max-width: 750px) {
-
   .park-modal {
     border-left: 0;
     border-right: 0;
@@ -347,7 +345,6 @@ body {
 }
 
 @media (max-width: 500px) {
-
   .park-container:hover .park-thumbnail {
     margin-left: 0;
     padding: 0;
