@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Parks = (props) => {
+  console.log("has been updated");
   const [parks, setParks] = useState([]);
   const [filter, setFilter] = useState([]);
   const [modal, setModal] = useState(false);
