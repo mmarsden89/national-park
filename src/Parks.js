@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Parks = (props) => {
-  console.log("has been updated");
   const [parks, setParks] = useState([]);
   const [filter, setFilter] = useState([]);
   const [modal, setModal] = useState(false);
@@ -27,7 +26,6 @@ const Parks = (props) => {
     if (isAuthenticated) {
       try {
         const userResponse = await axios(`${apiUrl}/users/${user.nickname}`);
-        console.log("user response --->", userResponse);
         setUserState(userResponse.data.user);
         setUserParkList(userResponse.data.user.list);
       } catch (err) {
@@ -38,7 +36,6 @@ const Parks = (props) => {
   };
 
   useEffect(() => {
-    console.log(userParkList);
     getParks();
     getUser();
   }, [user]);
