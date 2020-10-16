@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import "./App.scss";
 import "./Navbar.scss";
 import "./Scroll.scss";
+import "./Footer.scss";
 import Parks from "./Parks";
 import { Route, withRouter } from "react-router-dom";
 import Header from "./Header";
 import NavBar from "./NavBar";
 import Scroll from "./Scroll";
+import Footer from "./Footer";
 
 // Admin
 // import CreateParks from './Admin/CreateParks'
@@ -21,6 +23,7 @@ class App extends Component {
           <Header />
           <Parks />
         </div>
+        <Footer />
       </div>
     );
   }
