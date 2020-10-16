@@ -1,0 +1,22 @@
+$background: #1e2127;
+$offwhite: #cccccc;
+
+.footer-container {
+  width: 100vw;
+  height: 75px;
+  background-color: $background;
+  margin-top: 25px;
+  z-index: 10;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: $offwhite;
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+  color: $offwhite;
+}
