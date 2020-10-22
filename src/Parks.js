@@ -149,12 +149,14 @@ const Parks = (props) => {
         )
       ) : null}
       <div className="park-container" onClick={openModal} id={park._id}>
-        <img
-          src={park.thumbnail}
-          alt={"thumbnail of " + park.name}
-          className="park-thumbnail"
-          loading="lazy"
-        />
+        <div className="mob-img">
+          <img
+            src={park.thumbnail}
+            alt={"thumbnail of " + park.name}
+            className="park-thumbnail"
+            loading="lazy"
+          />
+        </div>
         <div className="info-grid">
           <p className="park-name">{park.name} National Park</p>
           <p className="info">
