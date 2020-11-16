@@ -11,7 +11,7 @@ import Scroll from "./Scroll";
 import Footer from "./Footer";
 
 // Admin
-// import CreateParks from './Admin/CreateParks'
+import CreateParks from "./Admin/CreateParks";
 
 class App extends Component {
   render() {
@@ -23,6 +23,7 @@ class App extends Component {
           <Header />
           <Parks />
         </div>
+        {/* <CreateParks /> */}
         <Footer />
       </div>
     );
