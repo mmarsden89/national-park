@@ -1,5 +1,5 @@
-const createHistory = require('history').createBrowserHistory;
+const createHistory = require("history").createBrowserHistory;
 
 export default createHistory({
-  basename: process.env.NODE_ENV === 'development' ? '/' : '/national-park-prototype'
+  basename: process.env.NODE_ENV === "development" ? "/" : "/national-park",
 });
