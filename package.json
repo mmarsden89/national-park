@@ -2,7 +2,7 @@
   "name": "national-parks-prototype",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mmarsden89.github.io/national-park-prototype",
+  "homepage": "https://mmarsden89.github.io/national-park",
   "dependencies": {
     "@auth0/auth0-react": "^1.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
