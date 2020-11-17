@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/national-park-prototype/static/css/main.464fd2dc.chunk.css",
-    "main.js": "/national-park-prototype/static/js/main.f3f7e23c.chunk.js",
-    "main.js.map": "/national-park-prototype/static/js/main.f3f7e23c.chunk.js.map",
-    "runtime~main.js": "/national-park-prototype/static/js/runtime~main.165f97c8.js",
-    "runtime~main.js.map": "/national-park-prototype/static/js/runtime~main.165f97c8.js.map",
-    "static/js/2.25182427.chunk.js": "/national-park-prototype/static/js/2.25182427.chunk.js",
-    "static/js/2.25182427.chunk.js.map": "/national-park-prototype/static/js/2.25182427.chunk.js.map",
-    "index.html": "/national-park-prototype/index.html",
-    "precache-manifest.61f63f632191e9244c818a3597e023b2.js": "/national-park-prototype/precache-manifest.61f63f632191e9244c818a3597e023b2.js",
-    "service-worker.js": "/national-park-prototype/service-worker.js",
-    "static/css/main.464fd2dc.chunk.css.map": "/national-park-prototype/static/css/main.464fd2dc.chunk.css.map"
+    "main.css": "/national-park/static/css/main.464fd2dc.chunk.css",
+    "main.js": "/national-park/static/js/main.f3f7e23c.chunk.js",
+    "main.js.map": "/national-park/static/js/main.f3f7e23c.chunk.js.map",
+    "runtime~main.js": "/national-park/static/js/runtime~main.e9eb33be.js",
+    "runtime~main.js.map": "/national-park/static/js/runtime~main.e9eb33be.js.map",
+    "static/js/2.25182427.chunk.js": "/national-park/static/js/2.25182427.chunk.js",
+    "static/js/2.25182427.chunk.js.map": "/national-park/static/js/2.25182427.chunk.js.map",
+    "index.html": "/national-park/index.html",
+    "precache-manifest.76ede5f01f060999ea83f48769cbdf5d.js": "/national-park/precache-manifest.76ede5f01f060999ea83f48769cbdf5d.js",
+    "service-worker.js": "/national-park/service-worker.js",
+    "static/css/main.464fd2dc.chunk.css.map": "/national-park/static/css/main.464fd2dc.chunk.css.map"
   }
 }
