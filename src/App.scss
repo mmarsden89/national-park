@@ -367,4 +367,52 @@ body {
     margin-left: 0;
     padding: 0;
   }
+
+  .park-container {
+    border: none;
+    // overflow: hidden;
+    // border-top-left-radius: 150px;
+    // border-top-right-radius: 150px;
+    // width: 75
+  }
+
+  button {
+    background-color: $background;
+    border: none;
+  }
+  .plusOrMinus {
+    margin-left: 10px;
+    // background-color: $background;
+  }
+
+  .info-grid {
+    background: linear-gradient(
+      180deg,
+      rgba(34, 52, 78, 0.5) 0%,
+      rgba(34, 52, 78, 1) 50%
+    );
+    padding-left: 25px;
+    margin-left: 18px;
+    z-index: 10;
+  }
+
+  .mob-img {
+    overflow: visible;
+  }
+
+  .park-thumbnail {
+    height: 250%;
+  }
+
+  .filter-buttons {
+    white-space: nowrap;
+  }
+
+  .filter-buttons-div {
+    // margin-right: 75px;
+  }
+
+  .filter-buttons:nth-child(3) {
+    padding-left: 15px;
+  }
 }
