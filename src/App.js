@@ -23,7 +23,7 @@ class App extends Component {
           <Header />
           <Parks />
         </div>
-        {/* <CreateParks /> */}
+        <CreateParks />
         <Footer />
       </div>
     );
