@@ -2,6 +2,7 @@ import React from "react";
 import ScrollToTop from "react-scroll-up";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretSquareUp } from "@fortawesome/free-solid-svg-icons";
+import "./Scroll.scss";
 
 const Scroll = () => {
   return (

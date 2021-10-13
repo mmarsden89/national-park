@@ -5,6 +5,8 @@ import { faSignOutAlt, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
+import "./Navbar.scss";
+
 const NavBar = (props) => {
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
 
